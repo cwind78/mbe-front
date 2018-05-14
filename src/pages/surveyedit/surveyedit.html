@@ -1,0 +1,44 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Survey Detail</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span ion-text color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<button *ngIf="!data.survey.seq_no" ion-button color="secondary" round large full (click)="save()">Save</button>
+	<ion-item>
+		<ion-label color="primary" stacked>Subject</ion-label>
+        <ion-input type="text" clearInput="true" max="100" #survey_subject [(ngModel)]="data.survey.survey_subject" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
+		<ion-label color="primary" stacked>Due Time(from registed)</ion-label>
+        <ion-input type="text" clearInput="true" max="2" #due_time [(ngModel)]="data.survey.due_time" placeholder=""></ion-input>
+    </ion-item>
+    <ion-item>
+		<ion-label color="primary" stacked>Win count</ion-label>
+        <ion-input type="text" clearInput="true" max="2" #user_value [(ngModel)]="data.survey.user_value" placeholder=""></ion-input>
+        
+    </ion-item>
+    <ion-item>
+    	<ion-badge item-end>투표수 : {{data.survey.vote}}</ion-badge>
+    	<ion-badge item-end>찬성 : {{data.survey.vote_yes}}</ion-badge>
+    	<ion-badge item-end>반대 : {{data.survey.vote_no}}</ion-badge>
+    </ion-item>
+    <ion-item>
+    <ion-range min="0" max="100" [(ngModel)]="data.survey.vote" disabled color="secondary">
+      <ion-label range-left>0</ion-label>
+      <ion-label range-right>100</ion-label>
+    </ion-range>
+  </ion-item>
+    <div>참여자가 win count에 도달하면 포인트를 지급하고 survey를 종료합니다.</div>
+        <div>다음 설문의 win count 최대치는 입력한 win count * 0.7(내림) 입니다.</div>
+</ion-content>

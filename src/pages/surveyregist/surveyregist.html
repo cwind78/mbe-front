@@ -1,0 +1,20 @@
+
+<ion-header>
+	<ion-navbar hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Survey Regist</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<button *ngIf="data.check.length&&data.check[0].config_value<1" ion-button color="secondary" round large full (click)="new(null)">New Survey</button>
+	<ion-item *ngIf="!data.survey.length">No data</ion-item>
+	<ion-item *ngFor="let item of data.survey" (click)="new(item)">
+		<div col-11 style="float:left;">{{item.survey_subject}}</div>
+		<div col-1>
+			<ion-icon name="checkmark" *ngIf="item.survey_status=='2'||item.survey_status=='3'"></ion-icon>
+		</div>
+	</ion-item>
+</ion-content>

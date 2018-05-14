@@ -1,0 +1,22 @@
+
+<ion-header>
+	<ion-navbar hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Filter</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-item *ngFor="let frow of data.filters; let i = index">
+		<ion-label color="primary" stacked>Filter{{i+1}}</ion-label>
+		<ion-select [(ngModel)]="frow.filter_cd">
+			<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : 'UF'}" [value]="item.code">{{item.code_name}}</ion-option>
+		</ion-select>
+		<ion-select [(ngModel)]="frow.filter_value">
+			<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : frow.filter_cd}" [value]="item.code">{{item.code_name}}</ion-option>
+		</ion-select>
+	</ion-item>
+	<button ion-button color="secondary" round large full (click)="filterSave()">Save</button>
+</ion-content>

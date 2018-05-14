@@ -1,0 +1,27 @@
+
+<ion-header>
+	<ion-navbar hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Point</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-item>Currency : {{point}}</ion-item>
+
+	<ion-grid>
+		<ion-row>
+			<ion-col>Point</ion-col>
+			<ion-col>Route</ion-col>
+			<ion-col>Date</ion-col>
+		</ion-row>
+		<ion-row *ngFor="let item of data.point">
+			<ion-col>{{item.point}}</ion-col>
+			<ion-col>{{item.route}}</ion-col>
+			<ion-col>{{item.regist_date}}</ion-col>
+		</ion-row>
+	</ion-grid>
+</ion-content>

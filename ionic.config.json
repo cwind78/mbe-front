@@ -1,0 +1,14 @@
+{
+  "name": "SideMenuProjectExample",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies" : [
+     {
+     	"path": "/api",
+     	"proxyUrl": "http://110.14.70.40"
+     }
+  ]
+}

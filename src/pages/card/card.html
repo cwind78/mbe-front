@@ -1,0 +1,34 @@
+
+<ion-header>
+	<ion-navbar hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Survey Regist</ion-title>
+	</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<button ion-button color="secondary" round large full (click)="refresh(null)">Refresh</button>
+	<button ion-button color="secondary" round large full (click)="ok(null)">Ok</button>
+	<ion-item>
+		<ion-badge>Currency : {{point}}</ion-badge>
+	</ion-item>
+	<ion-card (click)="select(1)" [ngStyle]="{'background-color':getColor(card1)}">
+		<ion-item>
+			Card1
+		</ion-item>
+		<div *ngIf="valid">{{card1}}</div>
+	</ion-card>
+	<ion-card (click)="select(2)" [ngStyle]="{'background-color':getColor(card2)}">
+		<ion-item>
+			Card2
+		</ion-item>
+		<div *ngIf="valid">{{card2}}</div>
+	</ion-card>
+	<div *ngIf="selected_card==card1">You selected card1</div>
+	<div *ngIf="selected_card==card2">You selected card2</div>
+	<div *ngIf="valid&&result">You win</div>
+	<div *ngIf="valid&&!result">You lost</div>
+</ion-content>

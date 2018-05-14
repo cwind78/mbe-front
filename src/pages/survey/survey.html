@@ -1,0 +1,14 @@
+
+<ion-header>
+	<ion-navbar hideBackButton>
+		<button ion-button menuToggle>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Survey</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<ion-item *ngIf="data.survey.length==0">No data</ion-item>
+	<ion-item *ngFor="let item of data.survey" (click)="vote(item)">{{item.survey_subject}}</ion-item>
+</ion-content>
