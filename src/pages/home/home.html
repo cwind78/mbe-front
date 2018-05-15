@@ -8,4 +8,16 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding>
+	<ion-card *ngFor="let item of data.recommand" (click)="detail(item)">
+		<ion-item>
+			<img src="/api/resources/upload/profile/{{item.photo}}" height="100px" width="100px">
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Name</ion-label>
+			<ion-input type="text" [disabled]="true" value="{{item.user_name}}"></ion-input>
+		</ion-item>
+		<ion-item>
+			Called : <ion-icon *ngIf="item.recommand_status=='3'" name="checkmark"></ion-icon>
+		</ion-item>
+	</ion-card>
 </ion-content>

@@ -18,6 +18,10 @@ export class RoulettePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  ionViewWillEnter() {
+    
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad RoulettePage');
   }

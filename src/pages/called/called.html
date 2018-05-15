@@ -1,0 +1,22 @@
+
+<ion-header>
+  <ion-navbar hideBackButton>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Called</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<ion-card *ngFor="let item of data.recommand" (click)="detail(item)">
+		<ion-item>
+			<img src="/api/resources/upload/profile/{{item.photo}}" height="100px" width="100px">
+		</ion-item>
+		<ion-item>
+			<ion-label color="primary" stacked>Name</ion-label>
+			<ion-input type="text" [disabled]="true" value="{{item.nick_name}}"></ion-input>
+		</ion-item>
+	</ion-card>
+</ion-content>

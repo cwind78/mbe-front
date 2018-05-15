@@ -45,7 +45,11 @@ export class FilterPage {
 	  , public toastCtrl: ToastController
   	) {
   	this.getCode();
-  	this.getRecommandFilter();
+  	//this.getRecommandFilter();
+  }
+
+  ionViewWillEnter() {
+    this.getRecommandFilter();
   }
 
   ionViewDidLoad() {

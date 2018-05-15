@@ -36,8 +36,12 @@ export class CardPage {
       , private loadingCtrl: LoadingController
 	  , private toastCtrl: ToastController
   	) {
-  	this.getPoint();
-  	this.refresh();
+  	
+  }
+
+  ionViewWillEnter() {
+    this.getPoint();
+    this.refresh();
   }
 
   ionViewDidLoad() {

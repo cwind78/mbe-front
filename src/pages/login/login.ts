@@ -19,8 +19,8 @@ import { MypagePage } from "../mypage/mypage";
 })
 export class LoginPage {
   user = [];
-  user_id : string = "123";
-  user_password : string = "123";
+  user_id : string = "admin";
+  user_password : string = "0911";
   constructor(public navCtrl: NavController, public navParams: NavParams, private menu: MenuController, private http : Http, private modalCtrl : ModalController) {
   	this.menu.enable(false);
   }

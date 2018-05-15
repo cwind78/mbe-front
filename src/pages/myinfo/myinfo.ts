@@ -18,6 +18,10 @@ export class MyinfoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  ionViewWillEnter() {
+    
+  }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MyinfoPage');
   }

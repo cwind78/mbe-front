@@ -32,7 +32,11 @@ export class SurveyPage {
 	  , private toastCtrl: ToastController
 	  , private modalCtrl : ModalController
   	) {
-  	this.getSurveyList();
+  	//this.getSurveyList();
+  }
+
+  ionViewWillEnter() {
+    this.getSurveyList();
   }
 
   ionViewDidLoad() {

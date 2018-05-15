@@ -26,8 +26,13 @@ export class PointPage {
   	  , private http : Http
       , private httpClient : HttpClient
   	) {
-  	this.getPoint();
-  	this.getPointData();
+  	/*this.getPoint();
+  	this.getPointData();*/
+  }
+
+  ionViewWillEnter() {
+    this.getPoint();
+    this.getPointData();
   }
 
   ionViewDidLoad() {

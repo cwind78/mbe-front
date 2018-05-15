@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from "../home/home";
-import { FilterPage } from "../filter/filter";
 import { PointPage } from "../point/point";
 import { MyinfoPage } from "../myinfo/myinfo";
 
@@ -18,10 +16,8 @@ import { MyinfoPage } from "../myinfo/myinfo";
   templateUrl: 'mypage.html',
 })
 export class MypagePage {
-  tab1 : any = HomePage;
-  tab2 : any = FilterPage;
-  tab3 : any = PointPage;
-  tab4 : any = MyinfoPage;
+  tab1 : any = PointPage;
+  tab2 : any = MyinfoPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

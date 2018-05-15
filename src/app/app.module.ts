@@ -15,6 +15,8 @@ import { ListPage } from '../pages/list/list';
 import { FilterPage } from '../pages/filter/filter';
 import { PointPage } from '../pages/point/point';
 import { MyinfoPage } from '../pages/myinfo/myinfo';
+import { CalledPage } from '../pages/called/called';
+import { RecommandPage } from '../pages/recommand/recommand';
 
 import { GamePage } from '../pages/game/game';
 import { RoulettePage } from '../pages/roulette/roulette';
@@ -41,7 +43,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RoulettePage,
     SurveyPage,
     SurveyregistPage,
-    CardPage
+    CardPage,
+    CalledPage,
+    RecommandPage
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     RoulettePage,
     SurveyPage,
     SurveyregistPage,
-    CardPage
+    CardPage,
+    CalledPage,
+    RecommandPage
   ],
   providers: [
     StatusBar,
