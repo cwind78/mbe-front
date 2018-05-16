@@ -40,7 +40,8 @@ export class MyApp {
     ];
 
     events.subscribe('user:login', () => {
-      console.log("token : ]]]]]]]]]]]]]]]]]]]]]]]]]]] " +this.token);
+      //console.log("user:login event published");
+      //console.log("token : ]]]]]]]]]]]]]]]]]]]]]]]]]]] " +this.token);
       this.saveToken(this.token);
     });
   }
@@ -101,7 +102,15 @@ export class MyApp {
   saveToken(token) {
     console.log("http send start >>>>");
     this.http.get('/api/main/token/'+token).subscribe(data => {
-        console.log("data", data.json());
+        //console.log("data", data.json());
+    });
+  }
+
+  logout() {
+    console.log("logout");
+    this.http.get('/api/main/logout').subscribe(data => {
+        //console.log("data", data.json());
+        this.nav.setRoot(LoginPage);
     });
   }
 }

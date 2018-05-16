@@ -1649,6 +1649,7 @@ var MyApp = /** @class */ (function () {
             { title: 'Point', component: __WEBPACK_IMPORTED_MODULE_6__pages_game_game__["a" /* GamePage */] }
         ];
         events.subscribe('user:login', function () {
+            console.log("user:login event published");
             console.log("token : ]]]]]]]]]]]]]]]]]]]]]]]]]]] " + _this.token);
             _this.saveToken(_this.token);
         });
