@@ -56,7 +56,7 @@ export class UserdetailPage {
 	  	if(!confirm("If you execute to call, your point decrease. Understand this all?")) {
 	  		return false;
 	  	}
-	}
+	  }
 
   	this.updateLoading();
   	this.http.post("/api/main/recommand/"+url, this.data.recommand)
@@ -79,10 +79,10 @@ export class UserdetailPage {
 
   deny() {
     if(!confirm("If you execute to call, your point decrease. Understand this all?")) {
-	  return false;
-	}
+	    return false;
+	  }
 
-	this.call("deny");
+    this.call("deny");
   }
 
   private handleError(error: any) {

@@ -29,6 +29,8 @@ import { PipesModule } from '../pipes/pipes.module'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -76,6 +78,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     StatusBar,
     SplashScreen,
     DatePicker,
+    Push,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FileTransfer,
     CommonService,

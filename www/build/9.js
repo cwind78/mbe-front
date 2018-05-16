@@ -1,14 +1,14 @@
 webpackJsonp([9],{
 
-/***/ 696:
+/***/ 702:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MypagePageModule", function() { return MypagePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PointPageModule", function() { return PointPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mypage__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__point__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MypagePageModule = /** @class */ (function () {
-    function MypagePageModule() {
+var PointPageModule = /** @class */ (function () {
+    function PointPageModule() {
     }
-    MypagePageModule = __decorate([
+    PointPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__mypage__["a" /* MypagePage */]
+                __WEBPACK_IMPORTED_MODULE_2__point__["a" /* PointPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__mypage__["a" /* MypagePage */])
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__point__["a" /* PointPage */]),
             ],
         })
-    ], MypagePageModule);
-    return MypagePageModule;
+    ], PointPageModule);
+    return PointPageModule;
 }());
 
-//# sourceMappingURL=mypage.module.js.map
+//# sourceMappingURL=point.module.js.map
 
 /***/ })
 

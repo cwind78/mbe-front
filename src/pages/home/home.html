@@ -16,8 +16,11 @@
 			<ion-label color="primary" stacked>Name</ion-label>
 			<ion-input type="text" [disabled]="true" value="{{item.user_name}}"></ion-input>
 		</ion-item>
-		<ion-item>
-			Called : <ion-icon *ngIf="item.recommand_status=='3'" name="checkmark"></ion-icon>
+		<ion-item *ngIf="item.recommand_status=='3'">
+			I called&nbsp;:&nbsp;&nbsp;&nbsp;<ion-icon name="checkmark"></ion-icon>
+		</ion-item>
+		<ion-item *ngIf="item.recommand_status=='4'">
+			Recommanded user denied my call&nbsp;:&nbsp;&nbsp;&nbsp;<ion-icon name="checkmark"></ion-icon>
 		</ion-item>
 	</ion-card>
 </ion-content>

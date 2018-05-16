@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Events, Platform, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { PointPage } from "../point/point";
 import { MyinfoPage } from "../myinfo/myinfo";
-
+import { Http } from "@angular/http";
 /**
  * Generated class for the MypagePage page.
  *
@@ -16,14 +16,20 @@ import { MyinfoPage } from "../myinfo/myinfo";
   templateUrl: 'mypage.html',
 })
 export class MypagePage {
-  tab1 : any = PointPage;
-  tab2 : any = MyinfoPage;
+  tab1 : any = MyinfoPage;
+  tab2 : any = PointPage;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+  	  public navCtrl: NavController
+  	  , public navParams: NavParams
+  	  , private platform : Platform
+  	  , private http : Http
+  	  , public events : Events
+  	) {
+      this.events.publish("user:login");
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad MypagePage');
   }
-
 }

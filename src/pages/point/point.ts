@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { MenuController } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { HttpClient } from "@angular/common/http";
 /**
@@ -25,9 +26,11 @@ export class PointPage {
   	  , public navParams: NavParams
   	  , private http : Http
       , private httpClient : HttpClient
+      , private menu : MenuController
   	) {
   	/*this.getPoint();
   	this.getPointData();*/
+    this.menu.enable(true);
   }
 
   ionViewWillEnter() {
