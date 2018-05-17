@@ -22,6 +22,7 @@
 	<ion-card>
 		<button ion-button *ngIf="data.recommand.acceptance_yn=='N'" color="secondary" round full (click)="accept()">Accept</button>
 		<button ion-button *ngIf="data.recommand.acceptance_yn=='N'" color="secondary" round full (click)="deny()">Deny</button>
+		<button ion-button *ngIf="data.recommand.acceptance_yn=='Y'" color="secondary" round full (click)="chat()">Chat</button>
 		<ion-item>
 			<img src="/api/resources/upload/profile/{{data.recommand.photo}}" height="100px" width="100px">
 		</ion-item>

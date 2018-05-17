@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ViewController, Loading, LoadingController, ToastController, IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Modal, ModalController, ModalOptions, ViewController, Loading, LoadingController, ToastController, IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
 import { HttpClient } from "@angular/common/http";
 import { catchError, finalize } from "rxjs/operators";
@@ -32,8 +32,9 @@ export class AcceptdetailPage {
   	  , private http : Http
   	  , private httpClient : HttpClient
       , private loadingCtrl: LoadingController
-	  , private toastCtrl: ToastController
-	  , private view : ViewController
+	    , private toastCtrl: ToastController
+	    , private view : ViewController
+      , private modalCtrl : ModalController
   	) {
       let originData = navParams.get("data");
   	  if (originData != null) {
@@ -132,5 +133,26 @@ export class AcceptdetailPage {
     });
 
     this.loading.present();
+  }
+
+  chat() {
+    const myModalOptions: ModalOptions = {
+      enableBackdropDismiss: false
+    };
+
+    const myModal: Modal = this.modalCtrl.create('ChatPage', { data: this.data.recommand}, myModalOptions);
+
+    myModal.present();
+
+    myModal.onDidDismiss((data) => {
+      console.log("I have dismissed.");
+      console.log(data);
+      //this.calledMeRecommandedUser();
+    });
+
+    myModal.onWillDismiss((data) => {
+      console.log("I'm about to dismiss");
+      console.log(data);
+    });
   }
 }

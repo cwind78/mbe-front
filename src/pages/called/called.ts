@@ -27,8 +27,8 @@ export class CalledPage {
   	  , public navParams: NavParams
   	  , private http : Http
   	  , private loadingCtrl: LoadingController
-	  , private toastCtrl: ToastController
-	  , private modalCtrl : ModalController
+	    , private toastCtrl: ToastController
+	    , private modalCtrl : ModalController
   	) {
   }
 

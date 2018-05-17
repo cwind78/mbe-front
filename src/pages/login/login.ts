@@ -21,8 +21,15 @@ export class LoginPage {
   user = [];
   user_id : string = "lotus78";
   user_password : string = "choi0911";
-  constructor(public navCtrl: NavController, public navParams: NavParams, private menu: MenuController, private http : Http, private modalCtrl : ModalController) {
+  constructor(
+      public navCtrl: NavController
+      , public navParams: NavParams
+      , private menu: MenuController
+      , private http : Http
+      , private modalCtrl : ModalController
+    ) {
   	this.menu.enable(false);
+
   }
 
   ionViewDidLoad() {
@@ -49,7 +56,7 @@ export class LoginPage {
   			if (this.user != undefined && this.user != null && this.user.length > 0) {
   				if (this.user[0].user_name != undefined && this.user[0].user_name != null && this.user[0].user_name != "") {
   					console.log(this.user[0].user_name);
-  					this.navCtrl.setRoot(MypagePage);
+  					this.navCtrl.setRoot(MypagePage, {user_id : this.user_id});
   				} else {
   					alert("Wrong input. Please check your account and retry");
   				}

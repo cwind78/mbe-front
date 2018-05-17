@@ -1,9 +1,17 @@
 import { Injectable } from '@angular/core'; 
 import { Http } from '@angular/http';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { Chat } from '../model/chat.model';
 
 @Injectable() 
 export class CommonService { 
-  constructor(private httpd : Http) {
+  user_id:string = "";
+  private chatRef = this.db.list<Chat>('chat');
+
+  constructor(
+      private httpd : Http
+      , private db : AngularFireDatabase
+    ) {
   }
 
   getCommonCodes(code_group) {
@@ -38,5 +46,33 @@ export class CommonService {
   		return true;
   	}
 
+  }
+
+  formatDate(date) {
+    var m = date.getMonth()+1;
+    var d = date.getDate();
+    var h = date.getHours();
+    var i = date.getMinutes();
+    var s = date.getSeconds();
+    return date.getFullYear()+'-'+(m>9?m:'0'+m)+'-'+(d>9?d:'0'+d)+' '+(h>9?h:'0'+h)+':'+(i>9?i:'0'+i)+':'+(s>9?s:'0'+s);
+}
+
+  /*
+  service about chat
+  */
+  getChat(user_id) {
+        return this.db.list<Chat>('chat', ref => ref.orderByChild('user_id').equalTo(user_id));
+    }
+ 
+  addChat(chat: Chat) {
+    return this.chatRef.push(chat);
+  }
+ 
+  updateChat(chat: Chat) {
+    return this.chatRef.update(chat.key, chat);
+  }
+ 
+  removeChat(chat: Chat) {
+    return this.chatRef.remove(chat.key);
   }
 }

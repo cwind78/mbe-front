@@ -1,15 +1,14 @@
 webpackJsonp([4],{
 
-/***/ 694:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AcceptdetailPageModule", function() { return AcceptdetailPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatPageModule", function() { return ChatPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__acceptdetail__ = __webpack_require__(711);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chat__ = __webpack_require__(738);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,39 +18,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var AcceptdetailPageModule = /** @class */ (function () {
-    function AcceptdetailPageModule() {
+var ChatPageModule = /** @class */ (function () {
+    function ChatPageModule() {
     }
-    AcceptdetailPageModule = __decorate([
+    ChatPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__acceptdetail__["a" /* AcceptdetailPage */],
+                __WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__acceptdetail__["a" /* AcceptdetailPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__pipes_pipes_module__["a" /* PipesModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__chat__["a" /* ChatPage */]),
             ],
         })
-    ], AcceptdetailPageModule);
-    return AcceptdetailPageModule;
+    ], ChatPageModule);
+    return ChatPageModule;
 }());
 
-//# sourceMappingURL=acceptdetail.module.js.map
+//# sourceMappingURL=chat.module.js.map
 
 /***/ }),
 
-/***/ 711:
+/***/ 738:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AcceptdetailPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(22);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_common_service__ = __webpack_require__(386);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,118 +66,84 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Generated class for the AcceptdetailPage page.
+ * Generated class for the ChatPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var AcceptdetailPage = /** @class */ (function () {
-    function AcceptdetailPage(navCtrl, navParams, http, httpClient, loadingCtrl, toastCtrl, view) {
+var ChatPage = /** @class */ (function () {
+    function ChatPage(navCtrl, navParams, commonService, view) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.http = http;
-        this.httpClient = httpClient;
-        this.loadingCtrl = loadingCtrl;
-        this.toastCtrl = toastCtrl;
+        this.commonService = commonService;
         this.view = view;
-        this.data = {
-            codes: [],
-            recommand: {}
+        this.user_id = "";
+        this.data = { recommand: {} };
+        this.chat = {
+            user_id: "",
+            text: "",
+            date: "",
+            my_id: ""
         };
         var originData = navParams.get("data");
         if (originData != null) {
             this.data.recommand = JSON.parse(JSON.stringify(originData));
+            this.user_id = this.data.recommand["user_id"] + "_" + this.data.recommand["recommand_user_id"];
         }
-        this.getCode();
+        this.chatlist = this.commonService.getChat(this.user_id)
+            .snapshotChanges()
+            .map(function (changes) {
+            return changes.map(function (c) { return (__assign({ key: c.payload.key }, c.payload.val())); });
+        })
+            .map(function (changes) { return changes.reverse(); });
     }
-    AcceptdetailPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad AcceptdetailPage');
-    };
-    AcceptdetailPage.prototype.ionViewWillEnter = function () {
-        //
-    };
-    AcceptdetailPage.prototype.getCode = function () {
-        var _this = this;
-        this.http.get("/api/main/getCommonCode/UH--UJ--UA--UP--UG")
-            .subscribe(function (data) {
-            //console.log(data.json());
-            //return data.json();
-            _this.data.codes = data.json();
-        }, function (onerror) {
-            //return null;
-        });
-    };
-    AcceptdetailPage.prototype.dismiss = function () {
+    ChatPage.prototype.dismiss = function () {
         this.view.dismiss();
     };
-    AcceptdetailPage.prototype.accept = function (url) {
-        var _this = this;
-        this.updateLoading();
-        this.http.post("/api/main/called/accept", this.data.recommand)
-            .subscribe(function (ok) {
-            _this.presentToast("Acceptance is complete.");
-            _this.loading.dismiss();
-            _this.dismiss();
-        }, function (onerror) {
-            //return null;
-            _this.presentToast("Faild to acceptance");
-            _this.loading.dismiss();
-        });
+    ChatPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ChatPage');
     };
-    AcceptdetailPage.prototype.deny = function () {
-        var _this = this;
-        this.updateLoading();
-        this.http.post("/api/main/called/deny", this.data.recommand)
-            .subscribe(function (ok) {
-            _this.presentToast("Denial is complete.");
-            _this.loading.dismiss();
-            _this.dismiss();
-        }, function (onerror) {
-            //return null;
-            _this.presentToast("Faild to denial");
-            _this.loading.dismiss();
-        });
+    ChatPage.prototype.add = function () {
+        if (this.chat.text == undefined || this.chat.text == null || this.chat.text == "") {
+            alert("Nothing was input. First, input and retry please");
+            return false;
+        }
+        this.chat["user_id"] = this.user_id;
+        this.chat["date"] = this.commonService.formatDate(new Date());
+        this.chat["my_id"] = this.commonService.user_id;
+        this.commonService.addChat(this.chat);
     };
-    AcceptdetailPage.prototype.handleError = function (error) {
-        console.log(JSON.stringify(error));
-        var errMsg = error.message ? error.message : error.toString();
-        this.error = errMsg;
-        return __WEBPACK_IMPORTED_MODULE_4_rxjs__["Observable"].throw(errMsg);
+    /*
+        parameter user_id === "user_id"+"-"+"recommand_user_id"
+    */
+    ChatPage.prototype.who = function (user_id) {
+        if (this.commonService.user_id == user_id) {
+            return "Me";
+        }
+        else {
+            return this.data.recommand["nick_name"];
+        }
     };
-    AcceptdetailPage.prototype.presentToast = function (msg) {
-        var toast = this.toastCtrl.create({
-            message: msg,
-            duration: 3000,
-            position: 'bottom'
-        });
-        toast.present();
+    ChatPage.prototype.paintMe = function (user_id) {
+        if (this.commonService.user_id == user_id) {
+            return "coral";
+        }
+        else {
+            return "";
+        }
     };
-    AcceptdetailPage.prototype.updateLoading = function () {
-        this.error = null;
-        this.loading = this.loadingCtrl.create({
-            content: 'Connecting to server...'
-        });
-        this.loading.present();
-    };
-    AcceptdetailPage = __decorate([
+    ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-acceptdetail',template:/*ion-inline-start:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\acceptdetail\acceptdetail.html"*/'<!--\n  Generated template for the AcceptdetailPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Acceptance Detail</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<ion-card>\n		<button ion-button *ngIf="data.recommand.acceptance_yn==\'N\'" color="secondary" round full (click)="accept()">Accept</button>\n		<button ion-button *ngIf="data.recommand.acceptance_yn==\'N\'" color="secondary" round full (click)="deny()">Deny</button>\n		<ion-item>\n			<img src="/api/resources/upload/profile/{{data.recommand.photo}}" height="100px" width="100px">\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Name</ion-label>\n			<ion-input type="text" [disabled]="true" value="{{data.recommand.nick_name}}"></ion-input>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Job</ion-label>\n			<ion-select [(ngModel)]="data.recommand.job" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UJ\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Area</ion-label>\n			<ion-select [(ngModel)]="data.recommand.area" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UA\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Hobby1</ion-label>\n			<ion-select [(ngModel)]="data.recommand.hobby1" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UH\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Hobby2</ion-label>\n			<ion-select [(ngModel)]="data.recommand.hobby2" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UH\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Hobby3</ion-label>\n			<ion-select [(ngModel)]="data.recommand.hobby3" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UH\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Purpose1</ion-label>\n			<ion-select [(ngModel)]="data.recommand.purpose1" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UP\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Purpose2</ion-label>\n			<ion-select [(ngModel)]="data.recommand.purpose2" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UP\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Gender</ion-label>\n			<ion-select [(ngModel)]="data.recommand.gender" [disabled]="true">\n				<ion-option *ngFor="let item of data.codes | codeFilter : {code_group : \'UG\'}" [value]="item.code">{{item.code_name}}</ion-option>\n			</ion-select>\n		</ion-item>\n		<ion-item>\n			<ion-label color="primary" stacked>Remark</ion-label>\n			<ion-input type="text" [disabled]="true" value="{{data.recommand.remark}}"></ion-input>\n		</ion-item>\n	</ion-card>\n</ion-content>'/*ion-inline-end:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\acceptdetail\acceptdetail.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Acceptance Detail</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngFor="let node of chatlist | async"><!-- detail-push navPush="EditNotePage" [navParams]="{note:note}"-->\n      <div [ngStyle]="{\'color\':paintMe(node.my_id)}">{{who(node.my_id)}}&nbsp;]&nbsp;&nbsp;&nbsp;{{node.text}}</div>\n    </div>\n</ion-content>\n<ion-footer>\n	<button ion-button color="secondary" round full (click)="add()">Chat</button>\n	<ion-item>\n		<ion-label>Input</ion-label>\n		<ion-input type="text" [(ngModel)]="chat.text"></ion-input>\n	</ion-item>\n</ion-footer>'/*ion-inline-end:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
-    ], AcceptdetailPage);
-    return AcceptdetailPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_common_service__["a" /* CommonService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_common_service__["a" /* CommonService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _d || Object])
+    ], ChatPage);
+    return ChatPage;
+    var _a, _b, _c, _d;
 }());
 
-//# sourceMappingURL=acceptdetail.js.map
+//# sourceMappingURL=chat.js.map
 
 /***/ })
 

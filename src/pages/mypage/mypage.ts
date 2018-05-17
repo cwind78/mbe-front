@@ -3,6 +3,7 @@ import { Events, Platform, IonicPage, NavController, NavParams } from 'ionic-ang
 import { PointPage } from "../point/point";
 import { MyinfoPage } from "../myinfo/myinfo";
 import { Http } from "@angular/http";
+import { CommonService } from "../../app/common.service";
 /**
  * Generated class for the MypagePage page.
  *
@@ -25,8 +26,11 @@ export class MypagePage {
   	  , private platform : Platform
   	  , private http : Http
   	  , public events : Events
+      , public commonService : CommonService
   	) {
       this.events.publish("user:login");
+
+      commonService.user_id = navParams.get("user_id");
   }
 
   ionViewDidLoad() {

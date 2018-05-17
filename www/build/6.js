@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 706:
+/***/ 734:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SurveyPageModule", function() { return SurveyPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SurveyregistPageModule", function() { return SurveyregistPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__survey__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__surveyregist__ = __webpack_require__(169);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var SurveyPageModule = /** @class */ (function () {
-    function SurveyPageModule() {
+var SurveyregistPageModule = /** @class */ (function () {
+    function SurveyregistPageModule() {
     }
-    SurveyPageModule = __decorate([
+    SurveyregistPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__survey__["a" /* SurveyPage */],
+                __WEBPACK_IMPORTED_MODULE_2__surveyregist__["a" /* SurveyregistPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__survey__["a" /* SurveyPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__surveyregist__["a" /* SurveyregistPage */]),
             ],
         })
-    ], SurveyPageModule);
-    return SurveyPageModule;
+    ], SurveyregistPageModule);
+    return SurveyregistPageModule;
 }());
 
-//# sourceMappingURL=survey.module.js.map
+//# sourceMappingURL=surveyregist.module.js.map
 
 /***/ })
 

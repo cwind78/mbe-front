@@ -29,7 +29,19 @@ import { PipesModule } from '../pipes/pipes.module'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
+
+export const firebaseConfig = {
+    apiKey: 'AIzaSyBAr6aQ_ddTUamDeyGABsiRYRqDi_n0d8A',
+    authDomain: 'myapp2-acbf1.firebaseapp.com',
+    databaseURL: 'https://myapp2-acbf1.firebaseio.com/',
+    storageBucket: 'myapp2-acbf1.appspot.com',
+    messagingSenderId: '314011346442'
+};
 
 @NgModule({
   declarations: [
@@ -54,7 +66,9 @@ import { Push, PushObject, PushOptions } from '@ionic-native/push';
     IonicModule.forRoot(MyApp),
     HttpModule,
     HttpClientModule,
-    PipesModule
+    PipesModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -43,6 +43,9 @@
     "phonegap-plugin-push": {
       "FCM_VERSION": "11.6.2",
       "PACKAGE_NAME": "io.ionic.starter"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "io.ionic.starter"
     }
   },
   "dependent_plugins": {}
