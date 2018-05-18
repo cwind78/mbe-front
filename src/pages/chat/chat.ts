@@ -88,4 +88,12 @@ export class ChatPage {
     	return "";
     }
   }
+
+  out() {
+    if (confirm("If you leave, you can not come back. Would you like to leave now?")) {
+      this.commonService.removeChat(this.data.recommand["user_id"]+"_"+this.data.recommand["recommand_user_id"]);
+    }
+
+    this.dismiss();
+  }
 }

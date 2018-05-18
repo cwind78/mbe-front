@@ -72,7 +72,8 @@ export class CommonService {
     return this.chatRef.update(chat.key, chat);
   }
  
-  removeChat(chat: Chat) {
-    return this.chatRef.remove(chat.key);
+  removeChat(user_id:string) {//chat: Chat) {
+    //return this.chatRef.remove(chat.key);
+    return this.db.list<Chat>('chat', ref => ref.orderByChild('user_id').equalTo(user_id)).remove();
   }
 }

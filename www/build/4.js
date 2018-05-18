@@ -45,7 +45,7 @@ var ChatPageModule = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_common_service__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_common_service__ = __webpack_require__(162);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -133,14 +133,22 @@ var ChatPage = /** @class */ (function () {
             return "";
         }
     };
+    ChatPage.prototype.out = function () {
+        if (confirm("If you leave, you can not come back. Would you like to leave now?")) {
+            this.commonService.removeChat(this.data.recommand["user_id"] + "_" + this.data.recommand["recommand_user_id"]);
+        }
+        this.dismiss();
+    };
     ChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chat',template:/*ion-inline-start:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Acceptance Detail</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngFor="let node of chatlist | async"><!-- detail-push navPush="EditNotePage" [navParams]="{note:note}"-->\n      <div [ngStyle]="{\'color\':paintMe(node.my_id)}">{{who(node.my_id)}}&nbsp;]&nbsp;&nbsp;&nbsp;{{node.text}}</div>\n    </div>\n</ion-content>\n<ion-footer>\n	<button ion-button color="secondary" round full (click)="add()">Chat</button>\n	<ion-item>\n		<ion-label>Input</ion-label>\n		<ion-input type="text" [(ngModel)]="chat.text"></ion-input>\n	</ion-item>\n</ion-footer>'/*ion-inline-end:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/,
+            selector: 'page-chat',template:/*ion-inline-start:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/'<!--\n  Generated template for the ChatPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Acceptance Detail</ion-title>\n    <ion-buttons start>\n      <button ion-button (click)="dismiss()">\n        <span ion-text color="primary" showWhen="ios">Cancel</span>\n        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n	<div *ngFor="let node of chatlist | async"><!-- detail-push navPush="EditNotePage" [navParams]="{note:note}"-->\n      <div [ngStyle]="{\'color\':paintMe(node.my_id)}">{{who(node.my_id)}}&nbsp;]&nbsp;&nbsp;&nbsp;{{node.text}}</div>\n    </div>\n</ion-content>\n<ion-footer>\n	<ion-item>\n		<ion-label>Input</ion-label>\n		<ion-input type="text" [(ngModel)]="chat.text"></ion-input>\n	</ion-item>\n  <button ion-button color="secondary" round full (click)="add()">Chat</button>\n  <button ion-button icon-only clear (click)="out()" style="float:right;">\n    <ion-icon name="close-circle"></ion-icon>\n  </button>\n</ion-footer>'/*ion-inline-end:"D:\2. Private\1. Study\2. IONIC\1. Project\mbe-front\src\pages\chat\chat.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__app_common_service__["a" /* CommonService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__app_common_service__["a" /* CommonService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__app_common_service__["a" /* CommonService */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */]])
     ], ChatPage);
     return ChatPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=chat.js.map
